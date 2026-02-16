@@ -3,112 +3,249 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Carnival Eco Crew LTD</title>
+  <title>Carnival Eco Crew LTD 🌴✨</title>
   <script src="https://cdn.tailwindcss.com"></script>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
   <style>
-    body { font-family: 'Poppins', sans-serif; scroll-behavior: smooth; }
-    .hero-bg { background: linear-gradient(to right, #16a34a, #22c55e, #84cc16); }
+    :root {
+      --green-start: #16a34a;
+      --green-mid: #22c55e;
+      --green-end: #86efac;
+      --yellow-pop: #facc15;
+      --purple-pop: #c084fc;
+    }
+    body {
+      font-family: 'Poppins', sans-serif;
+      scroll-behavior: smooth;
+      background: #f8fafc;
+      overflow-x: hidden;
+    }
+    .hero-bg {
+      background: linear-gradient(90deg, var(--green-start), var(--green-mid), #10b981);
+    }
+    .card-hover {
+      transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    }
+    .card-hover:hover {
+      transform: translateY(-12px) scale(1.04);
+      box-shadow: 0 20px 35px -10px rgba(0,0,0,0.18) !important;
+    }
+    .btn-pop {
+      transition: all 0.3s ease;
+    }
+    .btn-pop:hover {
+      transform: translateY(-3px) scale(1.06);
+      box-shadow: 0 10px 25px rgba(34,197,94,0.4);
+    }
+    .animate-fade-up {
+      opacity: 0;
+      transform: translateY(35px);
+      transition: all 0.9s ease-out;
+    }
+    .animate-fade-up.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    #particles-js {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      top: 0;
+      left: 0;
+      z-index: 5;
+      pointer-events: none;
+    }
+    .floating-cta {
+      position: fixed;
+      bottom: 30px;
+      right: 30px;
+      z-index: 1000;
+      animation: pulse 2s infinite;
+    }
+    @keyframes pulse {
+      0%, 100% { transform: scale(1); }
+      50% { transform: scale(1.12); }
+    }
   </style>
 </head>
 <body class="text-gray-800">
 
   <!-- HEADER -->
-  <header class="hero-bg text-white py-3 shadow-lg">
+  <header class="hero-bg text-white py-4 shadow-xl fixed w-full top-0 z-50 transition-all duration-300">
     <div class="container mx-auto px-6 flex justify-between items-center">
       <div class="flex items-center space-x-3">
-        <img src="cecltd.png" alt="Carnival Eco Crew LTD Logo" class="h-10 w-10 rounded-full">
-        <h1 class="text-2xl font-bold">Carnival Eco Crew LTD</h1>
+        <img src="cecltd.png" alt="Carnival Eco Crew LTD Logo" class="h-11 w-11 rounded-full ring-2 ring-white/40">
+        <h1 class="text-2xl md:text-3xl font-extrabold tracking-tight">Carnival Eco Crew</h1>
       </div>
-      <nav class="space-x-6 hidden md:block">
-        <a href="#about" class="hover:text-yellow-200">About</a>
-        <a href="#subsidiaries" class="hover:text-yellow-200">Subsidiaries</a>
-        <a href="#contact" class="hover:text-yellow-200">Contact</a>
+      <nav class="space-x-8 hidden md:flex font-medium">
+        <a href="#about" class="hover:text-var(--yellow-pop) transition">About</a>
+        <a href="#subsidiaries" class="hover:text-var(--yellow-pop) transition">Brands</a>
+        <a href="#contact" class="hover:text-var(--yellow-pop) transition">Connect</a>
       </nav>
     </div>
   </header>
 
-  <!-- HERO SECTION -->
-  <section class="text-white text-center py-24 relative overflow-hidden">
-    <div class="absolute inset-0 bg-black opacity-40"></div>
-    <div class="max-w-3xl mx-auto relative z-10">
-      <h2 class="text-5xl md:text-6xl font-extrabold mb-4 drop-shadow-lg">Empowering Sustainable Experiences</h2>
-      <p class="text-xl md:text-2xl mb-8 drop-shadow-md">Carnival Eco Crew LTD manages innovative brands focused on sustainability, lifestyle, and exploration — from bubble tea and solar energy to travel and tourism.</p>
-      <a href="#subsidiaries" class="bg-gradient-to-r from-green-400 via-green-500 to-green-600 text-white font-semibold py-4 px-8 rounded-full shadow-lg hover:shadow-2xl transition transform hover:-translate-y-1">Explore Our Brands</a>
+  <!-- HERO -->
+  <section class="min-h-screen flex items-center relative overflow-hidden hero-bg text-white pt-24 pb-20 md:pb-32">
+    <div id="particles-js"></div>
+    <div class="absolute inset-0 bg-black/35"></div>
+    
+    <div class="container mx-auto px-6 relative z-10 text-center">
+      <h2 class="text-5xl md:text-7xl font-extrabold mb-6 leading-tight drop-shadow-2xl animate-fade-up">
+        Feel the Vibe.<br>Live Sustainably. 🌿🎉
+      </h2>
+      <p class="text-xl md:text-3xl mb-10 max-w-4xl mx-auto font-light drop-shadow-lg animate-fade-up" style="transition-delay: 0.2s;">
+        Carnival Eco Crew brings the party to the planet — bold bubble tea, shining solar power, joyful journeys & more!
+      </p>
+      <a href="#subsidiaries" class="inline-block bg-white text-green-700 font-bold text-lg md:text-xl py-5 px-12 rounded-full shadow-2xl btn-pop animate-fade-up" style="transition-delay: 0.4s;">
+        Discover the Magic →
+      </a>
     </div>
-    <div class="absolute top-0 left-0 w-full h-full opacity-20 bg-[url('https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=1350&q=80')] bg-cover bg-center"></div>
+
+    <!-- Background vibe -->
+    <div class="absolute inset-0 opacity-15 bg-[url('https://images.unsplash.com/photo-1639002549231-a895a33c4888?auto=format&fit=crop&w=1350&q=80')] bg-cover bg-center mix-blend-overlay"></div>
   </section>
 
-  <!-- ABOUT SECTION -->
-  <section id="about" class="py-16 bg-gray-50">
-    <div class="max-w-5xl mx-auto px-6 text-center">
-      <h3 class="text-3xl font-semibold mb-4 text-green-700">About Carnival Eco Crew LTD</h3>
-      <p class="text-lg text-gray-600 leading-relaxed">
-        Carnival Eco Crew LTD is a diversified holding company uniting eco-conscious ventures under one vision — to create a greener, more connected world. 
-        Our mission is to bring sustainability and joy into every experience we manage, from delicious refreshments to clean energy and memorable travels.
+  <!-- ABOUT -->
+  <section id="about" class="py-24 bg-gradient-to-b from-white to-green-50">
+    <div class="container mx-auto px-6 text-center max-w-5xl">
+      <h3 class="text-4xl md:text-5xl font-bold text-green-700 mb-8 animate-fade-up">Who We Are</h3>
+      <p class="text-xl text-gray-700 leading-relaxed max-w-4xl mx-auto animate-fade-up" style="transition-delay: 0.2s;">
+        We’re not just a company — we’re a <strong class="text-green-600">vibe</strong>. Carnival Eco Crew LTD unites joyful, earth-loving brands that make sustainability feel exciting, delicious and adventurous.
+      </p>
+      <p class="mt-6 text-lg text-gray-600 animate-fade-up" style="transition-delay: 0.3s;">
+        From bubbling boba to solar-powered futures and dreamy eco-escapes — we bring fun + conscience together.
       </p>
     </div>
   </section>
 
-  <!-- SUBSIDIARIES SECTION -->
-  <section id="subsidiaries" class="py-20 bg-gray-50">
-    <div class="max-w-6xl mx-auto px-6 text-center">
-      <h3 class="text-3xl font-bold mb-12 text-green-700">Our Sub-Companies</h3>
-
-      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
+  <!-- SUBSIDIARIES -->
+  <section id="subsidiaries" class="py-24 bg-white">
+    <div class="container mx-auto px-6">
+      <h3 class="text-4xl md:text-5xl font-bold text-center text-green-700 mb-16 animate-fade-up">Our Colorful Brands</h3>
+      
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 md:gap-12">
+        
         <!-- Nu Sirop -->
-        <div class="bg-white shadow-xl rounded-2xl p-6 transform hover:-translate-y-2 hover:shadow-2xl transition">
-          <h4 class="text-2xl font-semibold text-purple-600 mb-2">Nu Sirop</h4>
-          <p class="text-gray-700">A Boba Experience blending culture and creativity — offering premium bubble tea inspired by Mauritian flavors.</p>
+        <div class="bg-gradient-to-br from-purple-50 to-pink-50 rounded-3xl p-8 shadow-xl card-hover animate-fade-up">
+          <div class="h-48 bg-cover bg-center rounded-2xl mb-6" style="background-image: url('https://images.unsplash.com/photo-1558160074-4d7d8bdf4256?auto=format&fit=crop&w=800&q=80')"></div>
+          <h4 class="text-3xl font-bold text-purple-600 mb-3">Nu Sirop</h4>
+          <p class="text-gray-700 text-lg">Premium bubble tea bursting with Mauritian soul & creative flavors — pure joy in every sip!</p>
         </div>
 
         <!-- Nu Solar -->
-        <div class="bg-white shadow-xl rounded-2xl p-6 transform hover:-translate-y-2 hover:shadow-2xl transition">
-          <h4 class="text-2xl font-semibold text-yellow-500 mb-2">Nu Solar</h4>
-          <p class="text-gray-700">A photovoltaic experience empowering homes and businesses through sustainable solar energy solutions.</p>
+        <div class="bg-gradient-to-br from-yellow-50 to-amber-50 rounded-3xl p-8 shadow-xl card-hover animate-fade-up" style="transition-delay: 0.1s;">
+          <div class="h-48 bg-cover bg-center rounded-2xl mb-6" style="background-image: url('https://images.unsplash.com/photo-1509391366360-2e959784a276?auto=format&fit=crop&w=800&q=80')"></div>
+          <h4 class="text-3xl font-bold text-yellow-600 mb-3">Nu Solar</h4>
+          <p class="text-gray-700 text-lg">Bright solar energy solutions that power homes & businesses — clean, smart, future-ready.</p>
         </div>
 
         <!-- Nu Lotel -->
-        <div class="bg-white shadow-xl rounded-2xl p-6 transform hover:-translate-y-2 hover:shadow-2xl transition">
-          <h4 class="text-2xl font-semibold text-blue-500 mb-2">Nu Lotel</h4>
-          <p class="text-gray-700">Tourism accommodation experiences offering eco-friendly boutique stays that blend comfort with nature.</p>
+        <div class="bg-gradient-to-br from-blue-50 to-cyan-50 rounded-3xl p-8 shadow-xl card-hover animate-fade-up" style="transition-delay: 0.2s;">
+          <div class="h-48 bg-cover bg-center rounded-2xl mb-6" style="background-image: url('https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=800&q=80')"></div>
+          <h4 class="text-3xl font-bold text-blue-600 mb-3">Nu Lotel</h4>
+          <p class="text-gray-700 text-lg">Eco-chic boutique stays where nature & comfort dance together beautifully.</p>
         </div>
 
         <!-- Nu Loto -->
-        <div class="bg-white shadow-xl rounded-2xl p-6 transform hover:-translate-y-2 hover:shadow-2xl transition">
-          <h4 class="text-2xl font-semibold text-red-500 mb-2">Nu Loto</h4>
-          <p class="text-gray-700">A car rental experience combining convenience and environmental awareness for travelers on the move.</p>
+        <div class="bg-gradient-to-br from-red-50 to-rose-50 rounded-3xl p-8 shadow-xl card-hover animate-fade-up md:col-span-2 lg:col-span-1" style="transition-delay: 0.3s;">
+          <div class="h-48 bg-cover bg-center rounded-2xl mb-6" style="background-image: url('https://images.unsplash.com/photo-1503376780353-7e6692767b70?auto=format&fit=crop&w=800&q=80')"></div>
+          <h4 class="text-3xl font-bold text-red-600 mb-3">Nu Loto</h4>
+          <p class="text-gray-700 text-lg">Fun, responsible car rentals that let you explore with a lighter footprint.</p>
         </div>
 
         <!-- Nu Voyage -->
-        <div class="bg-white shadow-xl rounded-2xl p-6 transform hover:-translate-y-2 hover:shadow-2xl transition md:col-span-2 lg:col-span-1">
-          <h4 class="text-2xl font-semibold text-teal-500 mb-2">Nu Voyage</h4>
-          <p class="text-gray-700">An online travel agency experience helping you discover the world with curated, eco-conscious journeys.</p>
-          <p class="text-gray-500 italic mt-2">Website: <a href="https://nu-voyage.info" class="underline hover:text-teal-700">nu-voyage.info</a></p>
+        <div class="bg-gradient-to-br from-teal-50 to-emerald-50 rounded-3xl p-8 shadow-xl card-hover animate-fade-up lg:col-start-2" style="transition-delay: 0.4s;">
+          <div class="h-48 bg-cover bg-center rounded-2xl mb-6" style="background-image: url('https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=800&q=80')"></div>
+          <h4 class="text-3xl font-bold text-teal-600 mb-3">Nu Voyage</h4>
+          <p class="text-gray-700 text-lg">Curated eco-adventures & dreamy getaways — travel that feels good.</p>
+          <p class="mt-4 text-gray-600 font-medium">
+            <a href="https://nu-voyage.info" class="underline hover:text-teal-700">nu-voyage.info →</a>
+          </p>
         </div>
+
       </div>
     </div>
   </section>
 
-  <!-- CONTACT SECTION -->
-  <section id="contact" class="py-16 text-center relative overflow-hidden">
-    <div class="absolute inset-0">
-      <img src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=1350&q=80" alt="Nature Background" class="w-full h-full object-cover opacity-30">
-    </div>
-    <div class="relative z-10 max-w-3xl mx-auto px-6 text-gray-900">
-      <h3 class="text-3xl font-semibold mb-4">Get in Touch</h3>
-      <p class="mb-8">Interested in partnership or learning more about our projects? Let’s connect and grow together sustainably.</p>
-      <div class="flex flex-col md:flex-row justify-center gap-6 text-lg">
-        <a href="mailto:carnivalecocrewltd@gmail.com" class="bg-green-600 text-white font-semibold py-3 px-6 rounded-full hover:bg-green-700 transition">Email Us</a>
-        <a href="https://wa.me/23058776225" target="_blank" class="bg-green-600 text-white font-semibold py-3 px-6 rounded-full hover:bg-green-700 transition">WhatsApp</a>
+  <!-- CONTACT -->
+  <section id="contact" class="py-24 bg-gradient-to-br from-green-600 to-emerald-700 text-white relative overflow-hidden">
+    <div class="absolute inset-0 opacity-10 bg-[url('https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=1350&q=80')] bg-cover"></div>
+    
+    <div class="container mx-auto px-6 text-center relative z-10">
+      <h3 class="text-4xl md:text-5xl font-bold mb-8">Let’s Create Something Green & Epic!</h3>
+      <p class="text-xl md:text-2xl mb-12 max-w-3xl mx-auto">Partnership? Collab? Just vibing with our mission? Drop us a message!</p>
+      
+      <div class="flex flex-col sm:flex-row justify-center gap-6 text-lg">
+        <a href="mailto:carnivalecocrewltd@gmail.com" class="bg-white text-green-700 font-bold py-5 px-10 rounded-full shadow-xl btn-pop flex items-center gap-3 justify-center">
+          <i class="fas fa-envelope text-xl"></i> Email Us
+        </a>
+        <a href="https://wa.me/23058776225" target="_blank" class="bg-white text-green-700 font-bold py-5 px-10 rounded-full shadow-xl btn-pop flex items-center gap-3 justify-center">
+          <i class="fab fa-whatsapp text-xl"></i> WhatsApp Chat
+        </a>
       </div>
     </div>
   </section>
+
+  <!-- FLOATING CTA -->
+  <a href="#contact" class="floating-cta bg-yellow-400 text-gray-900 font-bold py-4 px-8 rounded-full shadow-2xl flex items-center gap-3 hover:bg-yellow-300 transition">
+    <i class="fas fa-rocket"></i> Let’s Talk!
+  </a>
 
   <!-- FOOTER -->
-  <footer class="bg-gray-900 text-gray-300 text-center py-6">
-    <p>© 2025 Carnival Eco Crew LTD. Business Reg Number (BRN): L24003786. All rights reserved.</p>
+  <footer class="bg-gray-900 text-gray-400 text-center py-10">
+    <p class="text-lg">© 2026 Carnival Eco Crew LTD 🌍✨<br>BRN: L24003786 | All rights reserved.</p>
   </footer>
+
+  <!-- Particles.js CDN + init -->
+  <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
+  <script>
+    particlesJS("particles-js", {
+      "particles": {
+        "number": { "value": 60, "density": { "enable": true, "value_area": 800 } },
+        "color": { "value": ["#ffffff", "#fefcbf", "#86efac", "#c084fc"] },
+        "shape": { "type": "circle" },
+        "opacity": { "value": 0.5, "random": true },
+        "size": { "value": 5, "random": true },
+        "line_linked": { "enable": false },
+        "move": {
+          "enable": true,
+          "speed": 2.5,
+          "direction": "none",
+          "random": true,
+          "straight": false,
+          "out_mode": "out",
+          "bounce": false
+        }
+      },
+      "interactivity": {
+        "detect_on": "canvas",
+        "events": {
+          "onhover": { "enable": true, "mode": "bubble" },
+          "onclick": { "enable": true, "mode": "push" },
+          "resize": true
+        },
+        "modes": {
+          "bubble": { "distance": 200, "size": 8, "duration": 2, "opacity": 0.7 },
+          "push": { "particles_nb": 4 }
+        }
+      },
+      "retina_detect": true
+    });
+
+    // Fade-in on scroll
+    const fadeElements = document.querySelectorAll('.animate-fade-up');
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+        }
+      });
+    }, { threshold: 0.15 });
+
+    fadeElements.forEach(el => observer.observe(el));
+  </script>
 
 </body>
 </html>
